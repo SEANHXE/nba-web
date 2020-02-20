@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
 import ShotChart from "./ShotChart"
 import CounterSlider from "./CounterSlider"
+import _ from 'lodash';
 
 class DataViewContainer extends Component {
   state = {
     minCount: 2
   }
 
-  onCountSliderChange = (data) => {
-    console.log(data);
+  onCountSliderChange = (count) => {
+    console.log(count);
+    this.setState({
+      minCount: count,
+    })
   }
 
   render() {
@@ -20,7 +24,8 @@ class DataViewContainer extends Component {
         />
         <div className="filter">
           <CounterSlider
-            onConutSliderChange={this.onCountSliderChange}
+            value={this.state.minCount}
+            onConutSliderChange={ _.debounce(this.onCountSliderChange, 500)}
           />
         </div>
       </div>
