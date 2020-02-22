@@ -23,7 +23,7 @@ class SearchBar extends Component {
   }
 
   onSelect = (value) => {
-
+    this.props.handleSelectPlayer(value);
   }
 
   render() {
