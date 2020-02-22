@@ -13,15 +13,17 @@ class Main extends Component {
   componentDidMount() {
     window.nba = nba;
     nba.stats.playerInfo( {PlayerID: nba.findPlayer('Stephen Curry').playerId} )
-        .then((info) => {
-          console.log(info);
-          const playInfo =
-              Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
-          console.log(playInfo);
-          this.setState({ playerInfo: playInfo });
+      .then((info) => {
+        console.log(info);
+        const playInfo =
+            Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
+        console.log(playInfo);
+        this.setState({ playerInfo: playInfo });
 
-        })
+      })
   }
+
+  
 
   render() {
     return (
